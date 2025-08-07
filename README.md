@@ -1,61 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🤖 WhatsApp Bot Dashboard with Laravel 12 & Wablas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Dashboard ini adalah aplikasi web yang dirancang untuk mengelola dan memonitor bot WhatsApp Anda dengan mudah. Dibangun menggunakan **Laravel 12** sebagai framework utama dan terintegrasi dengan **Wablas API** untuk komunikasi dengan WhatsApp.
 
-## About Laravel
+## ✨ Fitur Unggulan
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Dasbor Ringkasan**: Lihat statistik penting seperti jumlah pesan terkirim, diterima, dan gagal.
+- **Inbox Interaktif**: Tampilkan riwayat percakapan dengan kontak secara real-time (menggunakan API Wablas).
+- **Balas Chat**: Kirim balasan langsung ke kontak dari halaman percakapan spesifik.
+- **Kirim Pesan Manual**: Kirim pesan ke nomor WhatsApp mana pun langsung dari dasbor.
+- **Tanpa Database**: Semua data riwayat pesan diambil langsung dari API Wablas saat dibutuhkan.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Persyaratan Sistem
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Pastikan server Anda memenuhi persyaratan berikut:
 
-## Learning Laravel
+- PHP >= 8.1
+- Composer
+- Node.js & NPM
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🚀 Instalasi
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Ikuti langkah-langkah di bawah ini untuk menjalankan proyek secara lokal.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Klon Repositori
 
-## Laravel Sponsors
+```bash
+git clone [https://github.com/nama-anda/nama-repositori.git](https://github.com/nama-anda/nama-repositori.git)
+cd nama-repositori
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Instalasi Dependensi
+Instal dependensi PHP dengan Composer dan dependensi JavaScript dengan NPM.
 
-### Premium Partners
+```bash
+composer install
+npm install
+npm run dev
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 3. Konfigurasi Lingkungan
+Salin file .env.example menjadi .env dan konfigurasikan kunci API Wablas Anda.
 
-## Contributing
+```bash
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Buka file .env dan tambahkan kredensial Wablas Anda:
 
-## Code of Conduct
+# Wablas API Credentials
+WABLAS_TOKEN=your_token_from_wablas
+WABLAS_SECRET_KEY=your_secret_key_from_wablas
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+### 4. Jalankan Aplikasi
+Jalankan server pengembangan Laravel.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan serve
+```
+Aplikasi Anda sekarang dapat diakses di http://127.0.0.1:8000.
 
-## License
+⚙️ Integrasi Wablas
+1. Hubungkan Perangkat
+Ikuti petunjuk di dokumentasi Wablas untuk memindai kode QR dan menghubungkan perangkat WhatsApp Anda.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. Konfigurasi API
+Aplikasi ini menggunakan API GET report/message untuk mengambil riwayat pesan. Pastikan kredensial Anda memiliki izin yang diperlukan.
+
+📝 Penggunaan
+Halaman Utama (/dashboard): Menampilkan ringkasan statistik dan daftar kontak terbaru.
+
+Halaman Percakapan (/conversation/{phone}): Klik salah satu kontak di halaman utama untuk melihat riwayat percakapan dan membalasnya.
+
+🤝 Kontribusi
+Kami sangat menyambut kontribusi Anda! Jika Anda menemukan bug atau ingin menambahkan fitur baru, silakan buka issue atau kirim pull request.
+
+📜 Lisensi
+Proyek ini dilisensikan di bawah MIT License.
