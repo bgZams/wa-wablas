@@ -25,7 +25,7 @@ Ikuti langkah-langkah di bawah ini untuk menjalankan proyek secara lokal.
 ### 1. Klon Repositori
 
 ```bash
-git clone [https://github.com/bgZams/wa-wablas.git](https://github.com/bgZams/wa-wablas.git)
+git clone https://github.com/bgZams/wa-wablas.git
 cd wa-wablas
 ```
 
